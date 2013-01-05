@@ -25,7 +25,7 @@ class BitcoindExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
 
-        foreach($config['bitcoind'] as $k => $v) {
+        foreach($config as $k => $v) {
             $container->setParameter('bitcoind.' . $k, $v);
         }
     }
