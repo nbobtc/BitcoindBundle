@@ -1,6 +1,26 @@
 {
     "name": "nbobtc/bitcoind-bundle",
+    "homepage": "https://github.com/nbobtc/BitcoindBundle",
+    "type": "symfony-bundle",
+    "description": "Bundle that gives you a bitcoind service wrapper",
+    "keywords": ["bitcoind","bitcoin","symfony bundle"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joshua Estes",
+            "role": "Lead Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/nbobtc/BitcoindBundle/issues",
+        "source": "https://github.com/nbobtc/BitcoindBundle"
+    },
     "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "master": "1.0.x-dev"
+        }
+    },
     "autoload": {
         "psr-0": { "Nbobtc\\Bundle\\BitcoindBundle": "" }
     },
