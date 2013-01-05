@@ -1,0 +1,12 @@
+{
+    "name": "nbobtc/bitcoind-bundle",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": { "Nbobtc\\Bundle\\BitcoindBundle": "" }
+    },
+    "target-dir": "Nbobtc/Bundle/BitcoindBundle",
+    "require": {
+        "symfony/symfony": ">=2.0,<=2.3",
+        "nbobtc/bitcoind-php": "*"
+    }
+}
