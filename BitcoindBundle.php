@@ -1,6 +1,6 @@
 <?php
 
-namespace Nbobtc\Bundle\BitcondBundle;
+namespace Nbobtc\Bundle\BitcoindBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
