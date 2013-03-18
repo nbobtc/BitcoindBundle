@@ -2,7 +2,7 @@
     "name": "nbobtc/bitcoind-bundle",
     "homepage": "https://github.com/nbobtc/BitcoindBundle",
     "type": "symfony-bundle",
-    "description": "Bundle that gives you a bitcoind service wrapper",
+    "description": "Bundle that gives you a bitcoind service wrapper. Also comes with tasks that you can use on the command line.",
     "keywords": ["bitcoind","bitcoin","symfony bundle"],
     "license": "MIT",
     "authors": [
@@ -26,7 +26,7 @@
     },
     "target-dir": "Nbobtc/Bundle/BitcoindBundle",
     "require": {
-        "symfony/symfony": ">=2.0,<=2.3",
+        "symfony/symfony": ">=2.1,<2.4",
         "nbobtc/bitcoind-php": "*"
     }
 }
