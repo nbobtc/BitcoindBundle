@@ -20,6 +20,9 @@ to install in your vendor directory and update you AppKernel.php file.
 
 ## Configuration
 
+This is the default configuration. You can get away with just setting the
+username and password if everything else is correct.
+
     # app/config/config.yml
     bitcoind:             
 
