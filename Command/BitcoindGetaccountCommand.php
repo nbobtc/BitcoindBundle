@@ -15,8 +15,9 @@ class BitcoindGetaccountCommand extends ContainerAwareCommand
     {
         $this
             ->setName('bitcoind:getaccount')
-            ->setDescription('')
+            ->setDescription('Returns the account associated with the given address.')
             ->setDefinition(array(
+                new InputArgument('address', InputArgument::REQUIRED, 'Bitcoin Address'),
             ))
         ;
     }
@@ -25,6 +26,8 @@ class BitcoindGetaccountCommand extends ContainerAwareCommand
     {
         $container = $this->getContainer();
         $bitcoind  = $container->get('bitcoind');
+        $account = $bitcoind->getaccount($input->getArgument('address'));
+        die(var_dump($account));
     }
 
 }

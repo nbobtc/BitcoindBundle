@@ -17,6 +17,8 @@ class BitcoindGetbalanceCommand extends ContainerAwareCommand
             ->setName('bitcoind:getbalance')
             ->setDescription('')
             ->setDefinition(array(
+                new InputArgument('account', InputArgument::REQUIRED, 'Account label/name'),
+                new InputArgument('minconf', InputArgument::OPTIONAL, 'Min. confirmations', 1),
             ))
         ;
     }
@@ -25,6 +27,8 @@ class BitcoindGetbalanceCommand extends ContainerAwareCommand
     {
         $container = $this->getContainer();
         $bitcoind  = $container->get('bitcoind');
+        $balance = $bitcoind->getbalance($input->getArgument('account'), $input->getArgument('minconf'));
+        $output->writeln(sprintf('Balance: %s', $balance));
     }
 
 }

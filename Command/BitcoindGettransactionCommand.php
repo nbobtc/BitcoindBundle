@@ -17,6 +17,7 @@ class BitcoindGettransactionCommand extends ContainerAwareCommand
             ->setName('bitcoind:gettransaction')
             ->setDescription('')
             ->setDefinition(array(
+                new InputArgument('txid', InputArgument::REQUIRED, 'Transaction ID'),
             ))
         ;
     }
@@ -25,6 +26,9 @@ class BitcoindGettransactionCommand extends ContainerAwareCommand
     {
         $container = $this->getContainer();
         $bitcoind  = $container->get('bitcoind');
+        $transaction = $bitcoind->gettransaction($input->getArgument('txid'));
+        // @todo Make this pretty
+        die(var_dump($transaction));
     }
 
 }

@@ -25,6 +25,8 @@ class BitcoindListaddressgroupingsCommand extends ContainerAwareCommand
     {
         $container = $this->getContainer();
         $bitcoind  = $container->get('bitcoind');
+        $groupings = $bitcoind->listaddressgroupings();
+        die(var_dump($groupings));
     }
 
 }

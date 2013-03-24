@@ -15,8 +15,9 @@ class BitcoindListaccountsCommand extends ContainerAwareCommand
     {
         $this
             ->setName('bitcoind:listaccounts')
-            ->setDescription('')
+            ->setDescription('List all accounts')
             ->setDefinition(array(
+                new InputArgument('minconf', InputArgument::OPTIONAL, 'Min. confirmations', 1),
             ))
         ;
     }
@@ -25,6 +26,14 @@ class BitcoindListaccountsCommand extends ContainerAwareCommand
     {
         $container = $this->getContainer();
         $bitcoind  = $container->get('bitcoind');
+        $accounts = $bitcoind->listaccounts($input->getArgument('minconf'));
+        foreach ($accounts as $account) {
+            $output->writeln(array(
+                sprintf("Account: %s", $account['account']),
+                sprintf("Balance: %s", $account['balance']),
+                '',
+            ));
+        }
     }
 
 }
