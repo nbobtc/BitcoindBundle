@@ -1,10 +1,23 @@
 NbobtcBitcoindBundle
 ====================
 
-## Installation
+Used for symfony2 projects that want to use a bitcoind server.
 
-Just run `php composer.phar require nbobtc/bitcoind-bundle` in your symfony2 project
-to install in your vendor directory and update you AppKernel.php file.
+# Requirements
+
+* [bitcoind](https://en.bitcoin.it/wiki/Bitcoind)
+* [nbobtc/bitcoind-php](https://github.com/nbobtc/bitcoind-php) (Included in this packages `composer.json` file)
+
+# Installation
+
+Edit your `composer.json` file and add:
+
+
+    "require": {
+        "nbobtc/bitcoin-bundle": ">=2.1,<2.4"
+    }
+
+Next you will need to add it in your `app/AppKernel.php` file.
 
     // app/AppKernel.php
     public function registerBundles()
@@ -18,24 +31,45 @@ to install in your vendor directory and update you AppKernel.php file.
         return $bundles;
     }
 
-## Configuration
+Next up is the configuration part. Edit `app/config/config.yml`.
 
-This is the default configuration. You can get away with just setting the
-username and password if everything else is correct.
-
-    # app/config/config.yml
     bitcoind:             
-
-        # schema used to connect to bitcoind
         schema:               http
-
-        # username used to connect to bitcoind
         username:             ~
         password:             ~
         host:                 127.0.0.1
         port:                 8332
 
-## Usage
+Make sure your server is up and running and it should all just work.
+
+# Configuration
+
+Configuring this bundle is pretty straight forward and is outlined in the installation
+instructions. This section will show how I suggest you setup your configuration.
+
+    # app/config/parameters.dist.yml
+    # File is included in your repository
+    parameters:
+        bitcoind_schema:   http
+        bitcoind_username: ~
+        bitcoind_password: ~
+        bitcoind_host:     localhost
+        bitcoind_port:     8332
+
+This is the same setup as your `parameters.yml` file. However you should have this
+file ignored.
+
+    # app/config/config.yml
+    bitcoind:             
+        schema:   %bitcoind_schema%
+        username: %bitcoind_username%
+        password: %bitcoind_password%
+        host:     %bitcoind_host%
+        port:     %bitcoind_port%
+
+That's it. Your `parameters.yml` file will have the information about your server.
+
+# Usage
 
 You now have access to a bitcoind service.
 
@@ -45,7 +79,7 @@ You now have access to a bitcoind service.
 For more information on how to use the bitcoind wrapper see the [nbobtc/bitcoind-php](https://github.com/nbobtc/bitcoind-php)
 project.
 
-## License
+# License
 
 Copyright (C) 2013 Joshua Estes
 
