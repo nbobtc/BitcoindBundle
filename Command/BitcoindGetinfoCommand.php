@@ -27,7 +27,7 @@ class BitcoindGetinfoCommand extends ContainerAwareCommand
 
         $output->writeln(array(
             sprintf('Version:          %s',$info->version),
-            sprintf('Wallet Version:   %s',$info->walletversion),
+            //sprintf('Wallet Version:   %s',$info->walletversion),
             sprintf('Balance:          %s',$info->balance),
             sprintf('Blocks:           %s',$info->blocks),
             sprintf('Connections:      %s',$info->connections),
@@ -35,7 +35,7 @@ class BitcoindGetinfoCommand extends ContainerAwareCommand
             sprintf('Difficulty:       %s',$info->difficulty),
             sprintf('Testnet           %s',$info->testnet),
             sprintf('Keypool Oldest:   %s',$info->keypoololdest),
-            sprintf('Keypool Size:     %s',$info->keypoolsize),
+            //sprintf('Keypool Size:     %s',$info->keypoolsize),
             sprintf('TX Fee:           %s',$info->paytxfee),
             sprintf('Errors:           %s',$info->errors),
         ));
