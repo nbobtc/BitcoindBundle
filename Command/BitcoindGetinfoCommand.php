@@ -27,7 +27,6 @@ class BitcoindGetinfoCommand extends ContainerAwareCommand
 
         $output->writeln(array(
             sprintf('Version:          %s',$info->version),
-            sprintf('Protocol Version: %s',$info->protocolversion),
             sprintf('Wallet Version:   %s',$info->walletversion),
             sprintf('Balance:          %s',$info->balance),
             sprintf('Blocks:           %s',$info->blocks),
