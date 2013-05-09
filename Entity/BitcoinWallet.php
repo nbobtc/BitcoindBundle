@@ -5,7 +5,7 @@ namespace Nbobtc\Bundle\BitcoindBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Nbobtc\Bundle\BitcoindBundle\Entity\BitcoinWalletRepository")
  * @ORM\Table(name="bitcoin_wallets")
  * @ORM\HasLifecycleCallbacks
  */
@@ -34,7 +34,7 @@ class BitcoinWallet
     /**
      * @ORM\Column(name="balance", type="decimal", precision=16, scale=8)
      */
-    private $balance;
+    private $balance = 0;
 
     /**
      * @ORM\Column(name="updated_at", type="datetime")
