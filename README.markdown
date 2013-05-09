@@ -42,6 +42,11 @@ Next up is the configuration part. Edit `app/config/config.yml`.
 
 Make sure your server is up and running and it should all just work.
 
+I've included some doctrine things that I have used that have been very helpful.
+You will need to update your database if you want to use the wallet manager.
+
+    php app/console doctrine:schema:update --force
+
 # Configuration
 
 Configuring this bundle is pretty straight forward and is outlined in the installation
@@ -78,6 +83,15 @@ You now have access to a bitcoind service.
 
 For more information on how to use the bitcoind wrapper see the [nbobtc/bitcoind-php](https://github.com/nbobtc/bitcoind-php)
 project.
+
+# Wallet Manager
+
+This bundle comes with a wallet manager that you can use for created new addresses, payments,
+and managing many other things related to bitcoin.
+
+    $manager = $this->container->get('manager.bitcoin_wallet');
+
+@TODO More documentation about using the wallet manager
 
 # License
 

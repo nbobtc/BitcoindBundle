@@ -20,6 +20,18 @@
         <service id="bitcoind" class="Nbobtc\Bitcoind\Bitcoind">
             <argument type="service" id="bitcoind.client" />
         </service>
+
+        <service id="manager.bitcoin_wallet" class="Nbobtc\Bundle\BitcoindBundle\Manager\BitcoinWalletManager">
+            <call method="setBitcoind">
+                <argument type="service" id="bitcoind" />
+            </call>
+            <call method="setEntityManager">
+                <argument type="service" id="doctrine.orm.entity_manager" />
+            </call>
+            <call method="setDispatcher">
+                <argument type="service" id="event_dispatcher" />
+            </call>
+        </service>
     </services>
 
 </container>
