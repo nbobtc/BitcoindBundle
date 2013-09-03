@@ -14,7 +14,7 @@ Edit your `composer.json` file and add:
 
 
     "require": {
-        "nbobtc/bitcoin-bundle": ">=2.1,<2.4"
+        "nbobtc/bitcoind-bundle": ">=2.1,<2.4"
     }
 
 Next you will need to add it in your `app/AppKernel.php` file.
