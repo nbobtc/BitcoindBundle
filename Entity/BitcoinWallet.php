@@ -39,7 +39,7 @@ class BitcoinWallet
     /**
      * @ORM\Column(name="updated_at", type="datetime")
      */
-    private $update_at;
+    private $updated_at;
 
     public function __construct($address = null)
     {
