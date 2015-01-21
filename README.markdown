@@ -93,9 +93,49 @@ and managing many other things related to bitcoin.
 
 @TODO More documentation about using the wallet manager
 
+# Validator
+
+You can validate a Bitcoin address with the provided validator which use Bitcoind (validateaddress).
+It's also support multisig addresses.
+
+```php
+<?php
+
+namespace SomeNamespace\Bundle\BitcoinBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Nbobtc\Bundle\BitcoindBundle\Validator\Constraints\BitcoinAddress;
+
+/**
+ * @ORM\Table(name="address")
+ * @ORM\Entity()
+ */
+class Address
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="deposit_address", type="string", length=255)
+     *
+     * @BitcoinAddress
+     */
+    private $depositAddress;
+
+    // [...]
+```
+
 # License
 
-Copyright (C) 2013 Joshua Estes
+Copyright (C) 2015 Joshua Estes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
