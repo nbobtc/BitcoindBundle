@@ -99,38 +99,38 @@ You can validate a Bitcoin address with the provided validator which use Bitcoin
 It's also support multisig addresses.
 
 ```php
-    <?php
+<?php
 
-    namespace SomeNamespace\Bundle\BitcoinBundle\Entity;
+namespace SomeNamespace\Bundle\BitcoinBundle\Entity;
 
-    use Doctrine\ORM\Mapping as ORM;
-    use Nbobtc\Bundle\BitcoindBundle\Validator\Constraints\BitcoinAddress;
+use Doctrine\ORM\Mapping as ORM;
+use Nbobtc\Bundle\BitcoindBundle\Validator\Constraints\BitcoinAddress;
+
+/**
+ * @ORM\Table(name="address")
+ * @ORM\Entity()
+ */
+class Address
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
 
     /**
-     * @ORM\Table(name="address")
-     * @ORM\Entity()
+     * @var string
+     *
+     * @ORM\Column(name="deposit_address", type="string", length=255)
+     *
+     * @BitcoinAddress
      */
-    class Address
-    {
-        /**
-         * @var integer
-         *
-         * @ORM\Column(name="id", type="integer")
-         * @ORM\Id
-         * @ORM\GeneratedValue(strategy="AUTO")
-         */
-        private $id;
+    private $depositAddress;
 
-        /**
-         * @var string
-         *
-         * @ORM\Column(name="deposit_address", type="string", length=255)
-         *
-         * @BitcoinAddress
-         */
-        private $depositAddress;
-
-        // [...]
+    // [...]
 ```
 
 # License
